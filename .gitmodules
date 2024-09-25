@@ -1,0 +1,3 @@
+[submodule "galadriel-sample"]
+	path = galadriel-sample
+	url = https://github.com/galadriel-ai/contracts
