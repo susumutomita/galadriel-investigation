@@ -18,5 +18,5 @@ PRIVATE_KEY_LOCALHOST="0x..."
 ```
 
 ## Note
-Investigation Note is https://scrapbox.io/susumutomita/%23Galadriel_investigation
 
+Investigation Note is https://scrapbox.io/susumutomita/%23Galadriel_investigation
