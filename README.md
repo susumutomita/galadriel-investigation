@@ -16,3 +16,7 @@ PRIVATE_KEY_GALADRIEL="0x..."
 # Private key to use for deployment on local network
 PRIVATE_KEY_LOCALHOST="0x..."
 ```
+
+## Note
+Investigation Note is https://scrapbox.io/susumutomita/%23Galadriel_investigation
+
