@@ -1,22 +1,66 @@
-# galadriel-investigation
+## Foundry
 
-## Setup
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-https://docs.galadriel.com/quickstart
+Foundry consists of:
 
-copy .template.env to .env and fill in the values
+-   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+-   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+-   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+-   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
-```bash
-# Address of oracle deployed on Galadriel testnet. See https://docs.galadriel.com/oracle-address
-ORACLE_ADDRESS="0x68EC9556830AD097D661Df2557FBCeC166a0A075"
+## Documentation
 
-# Private key to use for deployment on Galadriel testnet
-PRIVATE_KEY_GALADRIEL="0x..."
+https://book.getfoundry.sh/
 
-# Private key to use for deployment on local network
-PRIVATE_KEY_LOCALHOST="0x..."
+## Usage
+
+### Build
+
+```shell
+$ forge build
 ```
 
-## Note
+### Test
 
-Investigation Note is https://scrapbox.io/susumutomita/%23Galadriel_investigation
+```shell
+$ forge test
+```
+
+### Format
+
+```shell
+$ forge fmt
+```
+
+### Gas Snapshots
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```
