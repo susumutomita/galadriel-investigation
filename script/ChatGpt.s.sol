@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import {Script, console} from "forge-std/Script.sol";
 import {ChatGpt} from "../src/ChatGpt.sol";
 
-contract FeedbackSystemScript is Script {
+contract ChatGptScript is Script {
     function setUp() public {}
 
     function run() public {
