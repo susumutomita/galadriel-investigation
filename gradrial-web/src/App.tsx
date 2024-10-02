@@ -4,12 +4,12 @@ import ChatGptABI from './abi/ChatGptABI.json';
 import logo from './logo.svg';
 import './App.css';
 
-const contractABI = ChatGptABI as ethers.ContractInterface;
+const contractABI = ChatGptABI as unknown as ethers.ContractInterface;
 const contractAddress = '0x89cbf47222884c74344Fd8669a21bb88001d873e';
 
 function App() {
-  const [provider, setProvider] = useState<ethers.providers.Web3Provider | null>(null);
-  const [signer, setSigner] = useState<ethers.Signer | null>(null);
+  const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
+  const [signer, setSigner] = useState<ethers.JsonRpcSigner | null>(null);
   const [contract, setContract] = useState<ethers.Contract | null>(null);
   const [message, setMessage] = useState('');
   const [chatHistory, setChatHistory] = useState<string[]>([]);
@@ -17,9 +17,10 @@ function App() {
   useEffect(() => {
     const initWeb3 = async () => {
       if ((window as any).ethereum) {
-        const web3Provider = new ethers.providers.Web3Provider((window as any).ethereum);
+        await (window as any).ethereum.request({ method: 'eth_requestAccounts' });
+        const web3Provider = new ethers.BrowserProvider((window as any).ethereum);
         setProvider(web3Provider);
-        const web3Signer = web3Provider.getSigner();
+        const web3Signer = await web3Provider.getSigner();
         setSigner(web3Signer);
         const chatGptContract = new ethers.Contract(contractAddress, contractABI, web3Signer);
         setContract(chatGptContract);
