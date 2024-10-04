@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { ethers } from 'ethers';
+import { Interface, ethers } from 'ethers';
 import ChatGptABI from './abi/ChatGptABI.json';
 import logo from './logo.svg';
 import './App.css';
 
-const contractABI = ChatGptABI as unknown as ethers.ContractInterface;
+const contractABI = new Interface(ChatGptABI);
 const contractAddress = '0x89cbf47222884c74344Fd8669a21bb88001d873e';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       if ((window as any).ethereum) {
         await (window as any).ethereum.request({ method: 'eth_requestAccounts' });
         const web3Provider = new ethers.BrowserProvider((window as any).ethereum);
-        setProvider(web3Provider);
+        setProvider(web3Provider); // providerは現時点で未使用
         const web3Signer = await web3Provider.getSigner();
         setSigner(web3Signer);
         const chatGptContract = new ethers.Contract(contractAddress, contractABI, web3Signer);
