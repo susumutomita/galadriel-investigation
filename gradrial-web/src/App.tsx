@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Interface, ethers } from 'ethers';
 import ChatGptABI from './abi/ChatGptABI.json';
-import logo from './logo.svg';
 import './App.css';
 
 const contractABI = new Interface(ChatGptABI);
